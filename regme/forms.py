@@ -79,7 +79,7 @@ class UserActivationForm(forms.Form):
 
     def clean(self):
 
-        if self.cleaned_data.keys() == {'username', 'activation_key'}:
+        if list(self.cleaned_data.keys()) == ['username', 'activation_key']:
 
             try:
                 user = User._default_manager.get(
